@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bigpara-mcp"
+version = "0.1.0"
+description = "Unofficial read-only MCP server for Bigpara market data (BIST stocks, FX, gold, indices, crypto, price history)"
+readme = "README.md"
+license = { text = "PolyForm-Noncommercial-1.0.0" }
+requires-python = ">=3.10"
+dependencies = [
+    "mcp<2",
+    "curl-cffi>=0.7,<1.0",
+]
+authors = [{ name = "Mohammad Abbasi" }]
+
+[project.scripts]
+bigpara-mcp = "bigpara_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bigpara_mcp"]
